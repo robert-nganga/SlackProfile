@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SlackProfile</string>
+    <string name="title">Slack Profile</string>
 </resources>
