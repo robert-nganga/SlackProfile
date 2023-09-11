@@ -70,10 +70,12 @@ fun ProfileScreen(
         Spacer(modifier = Modifier.height(20.dp))
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { },
+            onClick = {
+                  navigateToWebView()
+            },
             shape = RoundedCornerShape(8.dp)
         ) {
-            Text(text = "Github")
+            Text(text = "Open Github")
         }
 
     }

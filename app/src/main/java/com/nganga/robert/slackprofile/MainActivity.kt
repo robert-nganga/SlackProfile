@@ -9,6 +9,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.nganga.robert.slackprofile.ui.theme.SlackProfileTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,13 +19,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SlackProfileTheme {
+                val navController = rememberNavController()
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ProfileScreen {
-
+                    NavHost(navController = navController, startDestination = "slackProfile"){
+                        composable(route="slackProfile"){
+                            ProfileScreen(
+                                navigateToWebView = {
+                                    navController.navigate(route = "githubProfile")
+                                }
+                            )
+                        }
+                        composable(
+                            route = "githubProfile"
+                        ){
+                            GithubProfileScreen()
+                        }
                     }
                 }
             }
