@@ -77,7 +77,6 @@ fun ProfileScreen(
         ) {
             Text(text = "Open Github")
         }
-
     }
 }
 
